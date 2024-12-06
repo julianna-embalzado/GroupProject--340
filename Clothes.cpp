@@ -33,3 +33,4 @@ void Clothes::displayInfo() const {
     std::cout << "Size: " << size << std::endl;
     std::cout << "Color: " << color << std::endl;
 }
+//TEST IF CHANGES APPEAR
