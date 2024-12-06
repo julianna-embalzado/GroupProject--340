@@ -2,10 +2,16 @@
 #define CUSTOMER_H
 
 #include "Person.h"
+#include "BusinessWorker.h"
+#include "CustomerCart.h"
 
 class Customer : public Person {
 private:
     std::string address;
+    //reference to businessworker object
+    BusinessWorker& businessWorker;
+    //Customer's cart
+    Customer cart;
 
 public:
     // Constructor
@@ -17,6 +23,15 @@ public:
 
     // Override the pure virtual function
     void displayInfo() const override;
+    
+    //Method to view an item from the inventory
+    void viewItem(const std::string& itemName);
+    
+    //Method to add an item to the cart
+    void addToCart(const std::string& itemName, int quantity);
+    
+    //Method to buy items in the cart
+    void buyItems();
 };
 
 #endif // CUSTOMER_H
