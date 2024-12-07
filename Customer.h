@@ -11,7 +11,7 @@ private:
     //reference to businessworker object
     BusinessWorker& businessWorker;
     //Customer's cart
-    Customer cart;
+    CustomerCart cart;
 
 public:
     // Constructor

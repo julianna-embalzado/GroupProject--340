@@ -1,12 +1,10 @@
 #include "Customer.h"
 #include <iostream>
 
-//another constructor
-Customer::Customer(BusinessWorker& businessWorker) : businessWorker(businessWorker);
 
 // Constructor
-Customer::Customer(int id, const std::string& name, const std::string& email, const std::string& address)
-    : Person(id, name, email), address(address) {}
+Customer::Customer(int id, const std::string& name, const std::string& email, const std::string& address, BusinessWorker& worker)
+    : Person(id, name, email), address(address), businessWorker(worker), cart(CustomerCart()) {}
 
 // Getter for address
 std::string Customer::getAddress() const {
@@ -40,20 +38,21 @@ void Customer::viewItem(const std::string& itemName){
     }
 }
 
-void Customer::addToCart(const std::string& itemName, int quantity){
-    const auto&inventory = businessWorker.getIventory();
+// Add an item to the cart
+void Customer::addToCart(const std::string& itemName, int quantity) {
+    const auto& inventory = businessWorker.getInventory();
     auto it = inventory.find(itemName);
-    
-    if(it != inventory .end()) {
-        //if enough stock is available it to the cart
-        cart.addItem(itemName, quantity, it->second.price);
+    if (it != inventory.end()) {
+        if (it->second.quantity >= quantity) {
+            cart.addItem({it->second.id, it->second.name, it->second.price, quantity});
+            std::cout << "Added " << quantity << " of " << itemName << " to your cart." << std::endl;
+        } else {
+            std::cout << "Not enough stock for " << itemName << " in inventory." << std::endl;
+        }
     } else {
-        std::cout << "Not enough stock for " << itemName << " in the inventory. " << std:: endl;
-     }
-} else {
-    std:: cout << "Item " << itemName << " not found in inventory." << std::endl;
-  }
- }
+        std::cout << "Item " << itemName << " not found in inventory." << std::endl;
+    }
+}
 
 void Customer::buyItems() {
     if(cart.getTotalItems() == 0){
@@ -61,15 +60,16 @@ void Customer::buyItems() {
     }
     //Process each item to cart and pass to the order to businessworker
     const auto& itemsInCart = cart.getItems();
-    for(const auto& item: itemsInCart){
+    for (const auto& item : itemsInCart) {
         const std::string& itemName = item.first;
         int quantity = item.second.quantity;
-        
+
         std::unordered_map<std::string, int> order;
         order[itemName] = quantity;
-        
-        businessWorker.shipOrder(setAddress, order)
+
+        businessWorker.shipOrder(address, order);
     }
     
-    cart = customerCart();
+    cart.clearCart();
+    std::cout << "Purchase complete! Your items are on their way." << std::endl;
 }
