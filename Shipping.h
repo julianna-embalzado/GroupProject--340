@@ -2,18 +2,19 @@
 #define SHIPPING_H
 
 #include <string>
-#include "Customer.h" // Assuming Customer provides customerInfo
+//#include "Customer.h" // Assuming Customer provides customerInfo
+class Customer;
 
 class Shipping {
 private:
     std::string estimatedArrival; // Estimated arrival date
-    Customer customerInfo;        // Customer associated with the shipping
+    const Customer* customerInfo;        // Customer associated with the shipping
     std::string shippingType;     // e.g., Standard, Express, Overnight
     std::string trackerNumber;    // Tracking number
 
 public:
     // Constructor
-    Shipping(const std::string& estimatedArrival, const Customer& customerInfo,
+    Shipping(const std::string& estimatedArrival, const Customer* customerInfo,
              const std::string& shippingType, const std::string& trackerNumber);
 
     // Getter and Setter for estimatedArrival

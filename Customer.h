@@ -5,6 +5,8 @@
 #include "BusinessWorker.h"
 #include "CustomerCart.h"
 
+class CustomerCart;
+
 class Customer : public Person {
 private:
     std::string address;
@@ -15,7 +17,8 @@ private:
 
 public:
     // Constructor
-    Customer(int id, const std::string& name, const std::string& email, const std::string& address);
+    Customer(int id, const std::string& name, const std::string& email, const std::string& address, BusinessWorker& worker);
+
 
     // Getter and Setter for address
     std::string getAddress() const;

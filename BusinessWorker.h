@@ -2,10 +2,23 @@
 #define BUSINESSWORKER_H
 
 #include "Person.h"
+
+struct InventoryItem {
+    std::string name;  // Name of the item
+    int quantity;      // Quantity available
+    double price;      // Price per unit
+};
+
 using namespace std;
 
 class BusinessWorker : public Person {
     public:
+    
+        // Getter for inventory
+        const std::unordered_map<std::string, InventoryItem>& getInventory() const {
+            return inventory;
+        }
+    
         // Constructor
         BusinessWorker(int id, const std::string& name, const std::string& email);
 
