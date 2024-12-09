@@ -158,3 +158,45 @@
 - **`Ship.h`** is used to create `Ship` objects and call their methods like `displayShipInfo()`.
 - **`Customer.h`** is used to create `Customer` objects, manage and display customer orders.
 
+### Sample Output:
+
+Testing Item Display:
+ID: 1, Name: Laptop, Price: 999.99
+ID: 2, Name: Smartphone, Price: 699.99
+ID: 3, Name: Headphones, Price: 199.99
+
+Testing Inventory Display:
+ID: 3, Name: Headphones, Price: 199.99
+ID: 2, Name: Smartphone, Price: 699.99
+ID: 1, Name: Laptop, Price: 999.99
+
+Testing Ship Info:
+Ship ID: SHIP001, Location: Port A
+
+Testing BusinessWorker and Ship Communication:
+Business Worker: Alice, Age: 45, Business: Alice's Business
+Ship ID: SHIP001, Location: Port A
+
+Testing Customer and Orders Communication:
+Customer: John Doe, Age: 30, Address: 123 Elm St
+Orders: 2
+Order ID: ORD001
+ID: 1, Name: Laptop, Price: 999.99
+ID: 2, Name: Smartphone, Price: 699.99
+Order ID: ORD002
+ID: 3, Name: Headphones, Price: 199.99
+
+Testing Order and Item Communication:
+Order ID: ORD001
+ID: 1, Name: Laptop, Price: 999.99
+ID: 2, Name: Smartphone, Price: 699.99
+Order ID: ORD002
+ID: 3, Name: Headphones, Price: 199.99
+
+Testing Search for Item with ID 2 in Inventory:
+Found Item with ID 2: ID: 2, Name: Smartphone, Price: 699.99
+
+Testing Sorting Inventory:
+ID: 1, Name: Laptop, Price: 999.99
+ID: 2, Name: Smartphone, Price: 699.99
+ID: 3, Name: Headphones, Price: 199.99
