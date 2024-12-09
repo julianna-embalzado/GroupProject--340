@@ -12,7 +12,7 @@ private:
     std::vector<Order> orders;  // Customer communicates with Orders
 
 public:
-    Customer(std::string n, int a, std::string addr);
+    Customer(std::string name, int aage, std::string address);
     void addOrder(Order o);  // Communication: Add an order to the customer
     void displayInfo() override;  // Communication: Display Customer info and associated Orders
 };

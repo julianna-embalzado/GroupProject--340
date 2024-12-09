@@ -3,8 +3,9 @@
 #include "Item.h"
 #include <iostream>
 
-Order::Order(std::string id) : orderID(id) {}
-
+Order::Order(std::string id) {
+    this->orderID = id;
+}
 void Order::addItem(Item item) {
     itemList.push_back(item);
 }

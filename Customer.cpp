@@ -1,9 +1,10 @@
 #include "Customer.h"
 #include <iostream>
 
-Customer::Customer(std::string n, int a, std::string addr)
-    : Person(n, a), address(addr) {}
-
+Customer::Customer(std::string name, int age, std::string address)
+    : Person(name, age) {
+    this->address = address;
+}
 void Customer::addOrder(Order o) {
     orders.push_back(o);  // Add the order to customer's order list
 }

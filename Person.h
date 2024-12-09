@@ -10,7 +10,7 @@ protected:
     int age;
 
 public:
-    Person(std::string n, int a);  // Constructor declaration
+    Person(std::string name, int age);  // Constructor declaration
     virtual void displayInfo() = 0; // Abstract method
 };
 

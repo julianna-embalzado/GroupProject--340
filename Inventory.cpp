@@ -5,8 +5,8 @@
 
 Inventory::Inventory() : head(nullptr) {}
 
-void Inventory::addItem(Item i) {
-    ItemNode* newNode = new ItemNode(i);
+void Inventory::addItem(Item item) {
+    ItemNode* newNode = new ItemNode(item);
     newNode->next = head;
     head = newNode;  // Insert at the beginning of the list
 }
@@ -47,8 +47,8 @@ void Inventory::sortItems() {
     }
 
     // Sort the vector by item ID
-    std::sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
-        return a.id < b.id;
+    std::sort(items.begin(), items.end(), [](const Item& lhs, const Item& rhs) {
+        return lhs.id < rhs.id;
     });
 
     // Rebuild the linked list with the sorted items

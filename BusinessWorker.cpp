@@ -1,11 +1,14 @@
 #include "BusinessWorker.h"
 #include <iostream>
 
-BusinessWorker::BusinessWorker(std::string n, int a, std::string bName, Ship* s)
-    : Person(n, a), businessName(bName), ship(s) {}  // Assign ship passed from main
+BusinessWorker::BusinessWorker(std::string name, int age, std::string business, Ship* ship)
+    : Person(name, age) {
+        this->businessName = business;
+        this->ship = ship;
+    }
 
-void BusinessWorker::assignShip(Ship* s) {
-    ship = s;  // Assign ship to business worker
+void BusinessWorker::assignShip(Ship* ship) {
+    ship = ship;  // Assign ship to business worker
 }
 
 void BusinessWorker::displayInfo() {

@@ -5,12 +5,13 @@
 #include <iostream>
 
 class Ship {
-public:
+private:
     std::string shipID;
     std::string location;
 
+public:
     Ship(std::string id, std::string loc);
-    void displayShipInfo();  // Communication: Display ship info
+    void displayShipInfo();  // Display ship info
 };
 
 #endif

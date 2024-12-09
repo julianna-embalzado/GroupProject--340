@@ -1,4 +1,7 @@
 // Person.cpp
 #include "Person.h"
 
-Person::Person(std::string n, int a) : name(n), age(a) {}
+Person::Person(std::string name, int aage) {
+    this->name = name;
+    this->age = age;
+}

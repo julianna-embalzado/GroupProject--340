@@ -12,9 +12,9 @@ private:
 
 public:
     // Updated constructor to accept Ship object
-    BusinessWorker(std::string n, int a, std::string bName, Ship* s);
+    BusinessWorker(std::string name, int age, std::string businessName, Ship* ship);
 
-    void assignShip(Ship* s);  // Communication: Assign a ship to the BusinessWorker
+    void assignShip(Ship* ship);  // Communication: Assign a ship to the BusinessWorker
     void displayInfo() override;  // Communication: Display BusinessWorker info and ship details
     void displayShipInfo();  // Display ship info via communication
 };

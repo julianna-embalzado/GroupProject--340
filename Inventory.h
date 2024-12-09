@@ -12,7 +12,7 @@ private:
 
 public:
     Inventory();
-    void addItem(Item i);
+    void addItem(Item item);
     void displayInventory();
     
     // Function declarations (already present in the header)
