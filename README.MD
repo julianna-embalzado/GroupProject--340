@@ -160,7 +160,7 @@
 
 ### Sample Output:
 
-```cpp
+```
 Testing Item Display:
 ID: 1, Name: Laptop, Price: 999.99
 ID: 2, Name: Smartphone, Price: 699.99
