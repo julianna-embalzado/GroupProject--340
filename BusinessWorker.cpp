@@ -1,16 +1,22 @@
 #include "BusinessWorker.h"
 #include <iostream>
 
-// Constructor
-BusinessWorker::BusinessWorker(int id, const std::string& name, const std::string& email)
-    : Person(id, name, email) {}
+BusinessWorker::BusinessWorker(std::string n, int a, std::string bName, Ship* s)
+    : Person(n, a), businessName(bName), ship(s) {}  // Assign ship passed from main
 
-// Override displayInfo
-void BusinessWorker::displayInfo() const {
-    std::cout << "Business Worker Info:" << std::endl;
-    std::cout << "ID: " << id << std::endl;
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Email: " << email << std::endl;
+void BusinessWorker::assignShip(Ship* s) {
+    ship = s;  // Assign ship to business worker
 }
-//bruuuuuuhh
-// May your group never find me
+
+void BusinessWorker::displayInfo() {
+    std::cout << "Business Worker: " << name << ", Age: " << age << ", Business: " << businessName << std::endl;
+    if (ship) {
+        ship->displayShipInfo();  // Call the communication method with ship
+    }
+}
+
+void BusinessWorker::displayShipInfo() {
+    if (ship) {
+        ship->displayShipInfo();  // Display the ship's info
+    }
+}

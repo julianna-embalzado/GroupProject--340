@@ -1,29 +1,60 @@
 #include "Inventory.h"
+#include "ItemNode.h"
 #include <iostream>
+#include <algorithm>
 
-// Constructor
-Inventory::Inventory(const std::string& category, const Item& item)
-    : category(category), item(item) {}
+Inventory::Inventory() : head(nullptr) {}
 
-// Getter for category
-std::string Inventory::getCategory() const {
-    return category;
+void Inventory::addItem(Item i) {
+    ItemNode* newNode = new ItemNode(i);
+    newNode->next = head;
+    head = newNode;  // Insert at the beginning of the list
 }
 
-// Setter for category
-void Inventory::setCategory(const std::string& category) {
-    this->category = category;
+void Inventory::displayInventory() {
+    ItemNode* temp = head;
+    while (temp) {
+        temp->item.displayItem();
+        temp = temp->next;
+    }
 }
 
-// Getter for item
-Item Inventory::getItem() const {
-    return item;
+// Function to search an item by its ID
+Item* Inventory::searchItem(int id) {
+    ItemNode* temp = head;
+    while (temp) {
+        if (temp->item.id == id) {
+            return &temp->item;  // Return the address of the item
+        }
+        temp = temp->next;
+    }
+    return nullptr;  // Return nullptr if item is not found
 }
 
-// Display inventory information
-void Inventory::displayInfo() const {
-    std::cout << "Inventory Info:" << std::endl;
-    std::cout << "Category: " << category << std::endl;
-    std::cout << "Item Info:" << std::endl;
-    item.displayInfo();
+// Function to sort items by their ID
+void Inventory::sortItems() {
+    if (!head || !head->next) {
+        return;  // No need to sort if the list has 0 or 1 item
+    }
+
+    std::vector<Item> items;
+    ItemNode* temp = head;
+    
+    // Transfer all items to a vector
+    while (temp) {
+        items.push_back(temp->item);
+        temp = temp->next;
+    }
+
+    // Sort the vector by item ID
+    std::sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
+        return a.id < b.id;
+    });
+
+    // Rebuild the linked list with the sorted items
+    temp = head;
+    for (const Item& item : items) {
+        temp->item = item;
+        temp = temp->next;
+    }
 }

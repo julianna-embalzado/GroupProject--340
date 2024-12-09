@@ -1,22 +1,20 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include <string>
+#include <vector>
 #include "Person.h"
+#include "Order.h"
 
 class Customer : public Person {
 private:
     std::string address;
+    std::vector<Order> orders;  // Customer communicates with Orders
 
 public:
-    // Constructor
-    Customer(int id, const std::string& name, const std::string& email, const std::string& address);
-
-    // Getter and Setter for address
-    std::string getAddress() const;
-    void setAddress(const std::string& address);
-
-    // Override the pure virtual function
-    void displayInfo() const override;
+    Customer(std::string n, int a, std::string addr);
+    void addOrder(Order o);  // Communication: Add an order to the customer
+    void displayInfo() override;  // Communication: Display Customer info and associated Orders
 };
 
-#endif // CUSTOMER_H
+#endif

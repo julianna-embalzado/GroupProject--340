@@ -1,3 +1,4 @@
+// Person.h
 #ifndef PERSON_H
 #define PERSON_H
 
@@ -5,28 +6,12 @@
 
 class Person {
 protected:
-    int id;
     std::string name;
-    std::string email;
+    int age;
 
 public:
-    // Constructor
-    Person(int id, const std::string& name, const std::string& email);
-
-    // Virtual destructor
-    virtual ~Person() = default;
-
-    // Getter methods
-    int getId() const;
-    std::string getName() const;
-    std::string getEmail() const;
-
-    // Setter methods
-    void setName(const std::string& name);
-    void setEmail(const std::string& email);
-
-    // Pure virtual function to make the class abstract
-    virtual void displayInfo() const = 0;
+    Person(std::string n, int a);  // Constructor declaration
+    virtual void displayInfo() = 0; // Abstract method
 };
 
-#endif // PERSON_H
+#endif

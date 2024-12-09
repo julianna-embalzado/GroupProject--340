@@ -1,26 +1,18 @@
+// Item.h
 #ifndef ITEM_H
 #define ITEM_H
 
 #include <string>
+#include <iostream>
 
 class Item {
-private:
+public:
     int id;
     std::string name;
+    double price;
 
-public:
-    // Constructor
-    Item(int id, const std::string& name);
-
-    // Getter methods
-    int getId() const;
-    std::string getName() const;
-
-    // Setter methods
-    void setName(const std::string& name);
-
-    // Display method
-    void displayInfo() const;
+    Item(int id, std::string name, double price);  // Constructor declaration
+    void displayItem() const;  // Method declaration
 };
 
-#endif // ITEM_H
+#endif
