@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "g++ build all source files",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/BusinessWorker.cpp",
+                "${workspaceFolder}/Customer.cpp",
+                "${workspaceFolder}/Person.cpp",
+                "${workspaceFolder}/Inventory.cpp",
+                "${workspaceFolder}/Item.cpp",
+                "${workspaceFolder}/ItemNode.cpp",
+                "${workspaceFolder}/Order.cpp",
+                "${workspaceFolder}/Ship.cpp",
+                "-o",
+                "${workspaceFolder}/main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compiling all source files"
+        }
+    ]
+}
